@@ -1,0 +1,23 @@
+{
+    "name": "among_us_desktop2",
+    "version": "2.0.1",
+    "description": "Among us Desktop v2",
+    "main": "index.js",
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "electron-builder": "^22.9.1",
+        "electron-packager": "^15.2.0",
+        "electron": "^9.1.1",
+        "electron-rebuild": "^2.3.4"
+    },
+    "build": {
+        "productName": "Among us Desktop v2",
+        "files": [
+            "**/*"
+        ]
+    },
+    "dependencies": {
+        "robotjs": "^0.6.0"
+    }
+}
