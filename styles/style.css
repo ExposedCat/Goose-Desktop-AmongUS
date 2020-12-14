@@ -1,0 +1,36 @@
+* {
+    overflow: hidden;
+}
+
+body, .public {
+    width: 100%;
+    height: 100%;
+}
+
+#player {
+    cursor: pointer;
+    position: absolute;
+    top: 50px;
+    left: -100px;
+    width: 50px;
+}
+
+#sabotage {
+    position: absolute;
+    top: 50%;
+    left: -100%;
+    transform: translate(-50%, -50%);
+    cursor: none;
+}
+
+#sabotage-button {
+    cursor: crosshair;
+}
+
+.animating {
+    transition: left 500ms ease;
+}
+
+.hidden {
+    display: none;
+}
