@@ -1,16 +1,13 @@
-const {
-    remote
-} = require('electron')
+const { remote } = require('electron')
 
-const mainProcess = remote.require('./index.js')
 const {
-    app,
+    window,
     width,
     height,
     moveMouse,
     scaleFactor,
     getCursorScreenPoint
-} = mainProcess
+} = remote.require('./app.js')
 const fpms = 100
 
 window.onload = () => {
@@ -249,7 +246,6 @@ window.onload = () => {
             const newState = player.state === 'sitting' ? 'staying' : 'sitting'
             setState(newState)
         }
-
     })
 
     player.graphicalObject.addEventListener('contextmenu', event => { // Right mouse

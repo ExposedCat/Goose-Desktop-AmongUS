@@ -1,23 +1,31 @@
 {
-    "name": "among_us_desktop2",
-    "version": "2.0.1",
-    "description": "Among us Desktop v2",
-    "main": "index.js",
-    "author": "",
-    "license": "ISC",
+    "name": "gd_amongus",
+    "version": "2.0.2",
+    "description": "Among US edition of Goose Desktop",
+    "main": "./src/app.js",
+    "author": "ExposedCat",
+    "license": "GPL-3.0-or-later",
     "devDependencies": {
+        "electron": "^16.0.8",
         "electron-builder": "^22.9.1",
-        "electron-packager": "^15.2.0",
-        "electron": "^9.1.1",
-        "electron-rebuild": "^2.3.4"
+        "electron-packager": "^15.2.0"
     },
     "build": {
-        "productName": "Among us Desktop v2",
+        "productName": "GD Among US v2",
         "files": [
             "**/*"
         ]
     },
     "dependencies": {
+        "node-abi": "^3.5.0",
         "robotjs": "^0.6.0"
+    },
+    "scripts": {
+        "start": "electron .",
+        "compile-deps": "npm rebuild --runtime=electron --target=16.0.8 --disturl=https://atom.io/download/atom-shell --abi=99",
+        "build-linux": "npx electron-packager . --platform=linux --arch=x64 --asar",
+        "build-mac": "npx electron-packager . --platform=mas --asar",
+        "build-win": "npx electron-packager . --platform=win32 --arch=x64 --asar",
+        "build-win32": "npx electron-packager . --platform=win32 --arch=ia32 --asar"
     }
 }

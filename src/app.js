@@ -1,14 +1,9 @@
 process.env['ELECTRON_DISABLE_SECURITY_WARNINGS'] = 'true'
 
-const {
-    app,
-    BrowserWindow,
-    screen
-} = require('electron')
 const { moveMouse } = require('robotjs')
-let win
+const { app, BrowserWindow, screen } = require('electron')
 
-function App() {
+function createWindow() {
     const window = new BrowserWindow({
         show: false,
         transparent: true,
@@ -23,25 +18,20 @@ function App() {
     window.maximize()
     window.show()
 
-    window.setIgnoreMouseEvents(true, {
-        forward: true
-    })
+    window.setIgnoreMouseEvents(true, { forward: true })
     window.setAlwaysOnTop(true)
-    window.loadURL(`file://${__dirname}/index.html`)
-    win = window
+    window.loadURL(`file://${__dirname}/app-view.html`)
+
+    return window
 }
 
 app.on('ready', () => {
-    const display = screen.getPrimaryDisplay()
-    const {
-        width,
-        height
-    } = display.size
-    App()
+    const { size, scaleFactor } = screen.getPrimaryDisplay()
+
     exports.moveMouse = moveMouse
-    exports.app = win
-    exports.width = width
-    exports.height = height
-    exports.scaleFactor = display.scaleFactor
+    exports.window = createWindow()
+    exports.width = size.width
+    exports.height = size.height
+    exports.scaleFactor = scaleFactor
     exports.getCursorScreenPoint = screen.getCursorScreenPoint
 })

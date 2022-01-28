@@ -1,0 +1,8 @@
+directories:
+  output: dist
+  buildResources: build
+productName: GD Among US v2
+files:
+  - filter:
+      - '**/*'
+electronVersion: 16.0.8
